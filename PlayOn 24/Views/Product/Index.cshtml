@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "All Products";
+}
+
+@if (!Model.Any())
+{
+    <div class="card">
+        <div class="card-header">
+            No Product created yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Use the button below to create a Product</h5>
+            <a asp-action="Create" class="btn btn-primary" style="width: auto">Add Product</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="my-4">
+		<a asp-action="Create" class="btn btn-primary mb-3" style="width: auto">Add Product</a>
+	</div>
+
+    foreach (var product in Model)
+	{
+		 var photoPath = "~/images/" + (product.PhotoPath ?? "noimage.jpg");
+
+		<div class="card row mb-3 mx-1 d-inline-block">
+			<div class="card-body p-0">
+				<img class="card-img-top" style="height: 200px; width: 200px;" src="@photoPath" alt="@product.Name"
+					 asp-append-version="true">
+			</div>
+			<div class="card-footer">
+				<div class="card-title text-center">
+					<a asp-action="Details" asp-route-id="@product.Id">@product.Name</a>
+				</div>
+			</div>
+		</div>
+	}
+}

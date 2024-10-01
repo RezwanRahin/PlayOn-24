@@ -1,0 +1,25 @@
+﻿@model PlayOn_24.ViewModels.ProductViewModels.ProductDetailsViewModel;
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container mt-3">
+    <h1 class="text-center">
+        <b>Product Details</b>
+    </h1>
+
+    <div class="card">
+        <div class="card-body row">
+            <img class="card-img-top col-6 poster" src="@Model.PhotoPath" alt="@Model.Name" asp-append-version="true" />
+            <div class="col-6">
+                <h4 class="card-title"><i>Name</i>: @Model.Name</h4><br>
+                <h6><i>Price</i>: @Model.Price</h6>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a asp-controller="Order" asp-action="Create" asp-route-productId="@Model.Id" class="btn btn-primary"
+                style="width: 80px">Order</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model PlayOn_24.ViewModels.OrderViewModels.OrderDetailsViewModel;
+
+@{
+    ViewData["Title"] = "Invoice";
+}
+
+<div class="container mt-3">
+    <h1 class="text-center">
+        <b>Invoice</b>
+    </h1>
+    
+    <div class="card">
+        <div class="card-body row">
+            <img class="card-img-top col-6 poster" src="@Model.Product.PhotoPath" alt="@Model.Product.Name"
+                asp-append-version="true" />
+            <div class="col-6">
+                <h4 class="card-title"><i>Name</i>: @Model.Product.Name</h4><br>
+                <h6><i>ID</i>: @Model.Id</h6>
+                <h6><i>Date</i>: @Model.Date.ToString("dd/MM/yyyy")</h6>
+                <h6><i>Price</i>: @Model.Product.Price</h6>
+                <h6><i>Quantity</i>: @Model.Quantity</h6>
+                <h6><i>Total Price</i>: @Model.NetCost</h6>
+                <h6 class="mt-4"><i>Customer</i>: @Model.Customer.Name <br> @Model.Customer.Email</h6>
+            </div>
+        </div>
+        <div class="card-footer">
+        <a asp-controller="Report" asp-action="Print" asp-route-orderId="@Model.Id" class="btn btn-primary"
+        style="width: 80px">Print</a>
+        </div>
+    </div>
+</div>

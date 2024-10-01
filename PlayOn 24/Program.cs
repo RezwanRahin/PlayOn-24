@@ -1,7 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using PlayOn_24.Context;
+using PlayOn_24.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Register DbContext
+var connectionString = builder.Configuration.GetConnectionString("PlayOn24Connection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+
+// ContextBoundObject Services
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 

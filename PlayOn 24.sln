@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayOn 24", "PlayOn 24\PlayOn 24.csproj", "{BCC676AC-AC3D-445D-B765-5EA04CF414C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayOn 24", "PlayOn 24\PlayOn 24.csproj", "{BCC676AC-AC3D-445D-B765-5EA04CF414C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDLCDesign", "RDLCDesign\RDLCDesign.csproj", "{F9A01B54-F047-42A6-B875-49DB0C5FA20C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BCC676AC-AC3D-445D-B765-5EA04CF414C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC676AC-AC3D-445D-B765-5EA04CF414C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC676AC-AC3D-445D-B765-5EA04CF414C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A01B54-F047-42A6-B875-49DB0C5FA20C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A01B54-F047-42A6-B875-49DB0C5FA20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A01B54-F047-42A6-B875-49DB0C5FA20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A01B54-F047-42A6-B875-49DB0C5FA20C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

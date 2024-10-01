@@ -1,0 +1,51 @@
+﻿@model PlayOn_24.ViewModels.OrderViewModels.ListOrderViewModel;
+
+@{
+    ViewData["Title"] = "Invoice List";
+}
+
+@if (!Model.Orders.Any())
+{
+    <h2>No Invoice available yet</h2>
+}
+else
+{
+    <div class="my-4">
+        <form method="post">
+            <div id="customerDiv" class="form-floating mt-3 mb-3 d-inline-flex" style="width: 700px;">
+                <input type="hidden" asp-for="@Model.CustomerId" id="CustomerId" />
+                <label>Customer</label>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary d-inline-flex ms-2">Filter</button>
+            @* <a asp-action="Index" asp-route-id="@Model.CustomerId" class="btn btn-primary d-inline">Filter</a> *@
+        </form>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td scope="row">@order.Id</td>
+                    <td>@order.Product.Name</td>
+                    <td>Mr. @order.Customer.Name <i>(@order.Customer.Email)</i></td>
+                    <td><a asp-action="Details" asp-route-id="@order.Id" class="btn btn-primary">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts
+{
+    <script src="~/js/selectCustomer.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

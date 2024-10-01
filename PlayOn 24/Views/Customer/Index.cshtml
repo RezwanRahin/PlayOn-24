@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Customer>
+
+@{
+    ViewData["Title"] = "All Customers";
+}
+
+@if (!Model.Any())
+{
+    <div class="card">
+        <div class="card-header">
+            No Customer created yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Use the button below to create a Customer</h5>
+            <a asp-action="Create" class="btn btn-primary" style="width: auto">Create Customer</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="my-4">
+        <a asp-action="Create" class="btn btn-primary mb-3" style="width: auto">Create Customer</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td scope="row">@customer.Id</td>
+                    <td>@customer.Name</td>
+                    <td>@customer.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
